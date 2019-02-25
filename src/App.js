@@ -1,26 +1,93 @@
 import React, { Component } from 'react';
+import Interface from './components/Interface';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      speisekarte: {
+        swipeTimer: 10,
+        pages: ['page1', 'page2'],
+        pageInfos: {
+          page1: {
+            headline: 'page1',
+            sidePicture: true,
+            components: ['component1', 'component2'],
+            componentInfos: {
+              component1: {
+                componentType: 'priceList',
+                data: {
+                  size: {
+                    height: 20,
+                    width: 100
+                  },
+                  products: [
+                    {
+                      name: 'burger',
+                      price: 10
+                    },
+                    {
+                      name: 'fries',
+                      price: 15
+                    }]
+                }
+              },
+              component2: {
+                componentType: 'image',
+                data: {
+                  size: {
+                    height: 20,
+                    width: 100
+                  },
+                  imgUri: 'exampleBase64'
+                }
+              }
+            }
+          },
+          page2: {
+            headline: 'page2',
+            sidePicture: true,
+            components: ['component1', 'component2'],
+            componentInfos: {
+              component1: {
+                componentType: 'priceList',
+                data: {
+                  size: {
+                    height: 20,
+                    width: 100
+                  },
+                  products: [
+                    {
+                      name: 'burger',
+                      price: 10
+                    },
+                    {
+                      name: 'fries',
+                      price: 15
+                    }]
+                }
+              },
+              component2: {
+                componentType: 'image',
+                data: {
+                  size: {
+                    height: 20,
+                    width: 100
+                  },
+                  imgUri: 'exampleBase64'
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Interface data={this.state.speisekarte}/>
     );
   }
 }

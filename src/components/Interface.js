@@ -17,7 +17,7 @@ class Interface extends Component {
     }
     render() {
       return (
-        <div>
+      /*<div>
         <h2>Page</h2>
         <form name="page" onSubmit={this.handleSubmit}>
             <div>
@@ -32,12 +32,31 @@ class Interface extends Component {
                                 <td><button value="5" onClick={this.onePageClick}>Bearbeiten</button></td>
                                 <td><button value="5" onClick={this.onePageClick}>Löschen</button></td>
                             </tr>
-                        </table>  
+                        </table>
                     </p>
                     <button value="5" onClick={this.onePageClick}>Hinzufügen</button>
                 </span>
             </div>
         </form>
+    </div>*/
+    <div>
+      <table>
+        <tr>
+          <th><h2>Pages</h2></th>
+        </tr>
+        {
+          this.props.data.pages.map(page => {
+            const pageData = this.props.data.pageInfos[page];
+            return(
+              <tr>
+                  <td>{pageData.headline}</td>
+                  <td><button value="5" onClick={this.onePageClick}>Bearbeiten</button></td>
+                  <td><button value="5" onClick={this.onePageClick}>Löschen</button></td>
+              </tr>                
+            )
+          })
+        }
+      </table>
     </div>
       );
     }

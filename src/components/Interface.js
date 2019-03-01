@@ -34,29 +34,29 @@ class Interface extends Component {
       return (
         
         <div>
-        {this.state.pageDetails ? <PageDetails details={this.state.pageDetails}/> : 
-          <div>
-            <table>
-              <tr>
-                <th><h2>Pages</h2></th>
-              </tr>
-              {
-                this.props.data.pages.map(page => {
-                  const pageData = this.props.data.pageInfos[page];
-                  return(
-                    <tr>
-                        <td>{pageData.headline}</td>
-                        <td><button value={page} onClick={this.pageBearbeiten}>Bearbeiten</button></td>
-                        <td><button value="5" onClick={this.pageBearbeiten}>Löschen</button></td>
-                    </tr>                
-                  )
-                })
-              }
-            </table>
-            <button value="5" onClick={this.pagebearbeiten}>Hinzufügen</button>
-          </div>
-        }
-          </div>
+          {this.state.pageDetails ? <PageDetails details={this.state.pageDetails}/> : 
+            <div>
+              <table>
+                <tr>
+                  <th><h2>Pages</h2></th>
+                </tr>
+                {
+                  this.props.data.pages.map(page => {
+                    const pageData = this.props.data.pageInfos[page];
+                    return(
+                      <tr>
+                          <td>{pageData.headline}</td>
+                          <td><button value={page} onClick={this.pageBearbeiten}>Bearbeiten</button></td>
+                          <td><button value="5" onClick={this.pageBearbeiten}>Löschen</button></td>
+                      </tr>                
+                    )
+                  })
+                }
+              </table>
+              <button value="5" onClick={this.pagebearbeiten}>Hinzufügen</button>
+            </div>
+          }
+        </div>
       );
     }
   }
